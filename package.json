@@ -1,0 +1,11 @@
+{
+  "name": "dt-decisions",
+  "version": "0.0.1",
+  "description": "Simple module for making large logic decisions without switch.",
+  "main": "decisions.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "author": "Dark Technologies, Inc.",
+  "license": "MIT"
+}
