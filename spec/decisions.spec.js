@@ -38,4 +38,40 @@ describe('Decisions Module', () => {
     })('bananas');
     expect(response).toBe('your not a monkey are you?');
   });
+  
+  it('should execute with parameters', () => {
+    var response = decisions({
+      'apples': function(count) {
+        return 'apples: '+count;
+      },
+      'oranges': function(count) {
+        return 'oranges: '+count;
+      },
+      'bananas': function(count) {
+        return 'bananas: '+count;
+      },
+      'default': function() {
+        return 'Cant decide?';
+      }
+    })('apples', 4);
+    expect(response).toBe('apples: 4');
+  });
+  
+  it('should pick the default', () => {
+    var response = decisions({
+      'apples': function(count) {
+        return 'apples: '+count;
+      },
+      'oranges': function(count) {
+        return 'oranges: '+count;
+      },
+      'bananas': function(count) {
+        return 'bananas: '+count;
+      },
+      'default': function() {
+        return 'Cant decide?';
+      }
+    })();
+    expect(response).toBe('Cant decide?');
+  });
 });

@@ -27,7 +27,7 @@ userChoice('oranges');
 userChoice('bananas');
 ```
 
-Or you can call it place to replace a case switch statement.
+Or you can call it in place to replace a case switch statement.
 
 replace this mess...
 
@@ -66,7 +66,7 @@ decisions({
 })(userDecision);
 ```
 
-Or even store the results even.
+Or just store the results.
 
 ```javascript
 var usersFavoriteFruit = decisions({

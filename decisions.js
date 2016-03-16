@@ -6,10 +6,10 @@ module.exports = function (decisionTree) {
         process.exit(1);
     }
 
-    function runDecision(decision) {
+    function runDecision(decision, params) {
         if (!!decisionTree[decision]) {
             if (decisionTree[decision] instanceof Function) {
-                return decisionTree[decision]();
+                return decisionTree[decision](params);
             } else {
                 return decisionTree[decision];
             }
@@ -18,11 +18,11 @@ module.exports = function (decisionTree) {
         }
     }
 
-    return function (decision) {
+    return function (decision, params) {
         if (!decision) { //blank decision
             return runDecision('default');
         } else {
-            return runDecision(decision);
+            return runDecision(decision, params);
         }
     };
 };
