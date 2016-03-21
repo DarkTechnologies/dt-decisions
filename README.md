@@ -109,4 +109,18 @@ var yourFavoriteFruit = pickFavoriteFruit(usersChoice);
 var yourFriendsFavoriteFruit = pickFavoriteFruit(friendsChoice);
 ```
 
+Need fall through logic?  No prob just add a 'unknown' fork.
+
+```javascript
+var usersFavoriteFruit = decisions({
+  'apples': 'you like apples!',
+  'oranges': 'high in vitamin C!',
+  'bananas': 'your not a monkey are you?',
+  'default': 'Cant decide?',
+  'unknown': 'huh?'
+})('grapes');
+```
+This will return 'huh?'.
+
+
 In conclusion: Decisions makes working with logic trees simple and clean.
