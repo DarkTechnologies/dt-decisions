@@ -57,7 +57,7 @@ describe('Decisions Module', () => {
     expect(response).toBe('apples: 4');
   });
   
-  it('should pick the default', () => {
+  it('should pick the default if blank', () => {
     var response = decisions({
       'apples': function(count) {
         return 'apples: '+count;
@@ -74,4 +74,26 @@ describe('Decisions Module', () => {
     })();
     expect(response).toBe('Cant decide?');
   });
+
+  it('should pick the unknown if doesnt recognize input', () => {
+    var response = decisions({
+      'apples': function(count) {
+        return 'apples: '+count;
+      },
+      'oranges': function(count) {
+        return 'oranges: '+count;
+      },
+      'bananas': function(count) {
+        return 'bananas: '+count;
+      },
+      'default': function() {
+        return 'Cant decide?';
+      },
+      'unknown': function() {
+        return 'huh?';
+      }
+    })('turkey');
+    expect(response).toBe('huh?');
+  });
+  
 });

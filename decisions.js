@@ -14,7 +14,15 @@ module.exports = function (decisionTree) {
                 return decisionTree[decision];
             }
         } else {
-            unknownDecision(decision);
+            if (!decisionTree['unknown']) {
+                unknownDecision(decision);
+            } else {
+                if (decisionTree['unknown'] instanceof Function) {
+                    return decisionTree['unknown'](params);
+                } else {
+                    return decisionTree['unknown'];
+                }
+            }
         }
     }
 

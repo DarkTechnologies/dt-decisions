@@ -1,6 +1,6 @@
 {
   "name": "dt-decisions",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple module for making large logic decisions without switch.",
   "main": "decisions.js",
   "scripts": {
