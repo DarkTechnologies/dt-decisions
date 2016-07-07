@@ -121,8 +121,7 @@ you reference the variable you named the module when you did the require, but wh
 your in a web browser you refer to the base class 'Decision'.
 
 
-Or just store the results.
-
+You can also store results.
 ```javascript
 var usersFavoriteFruit = decisions({
   'apples': function() {
@@ -141,7 +140,6 @@ var usersFavoriteFruit = decisions({
 ```
 
 But the above could be simplified to ...
-
 ```javascript
 var usersFavoriteFruit = decisions({
   'apples': 'you like apples!',
@@ -152,7 +150,6 @@ var usersFavoriteFruit = decisions({
 ```
 
 Or made reusable like...
-
 ```javascript
 var pickFavoriteFruit = decisions({
   'apples': 'you like apples!',
@@ -165,7 +162,6 @@ var yourFriendsFavoriteFruit = pickFavoriteFruit(friendsChoice);
 ```
 
 Need fall through logic?  No prob just add a 'unknown' fork.
-
 ```javascript
 var usersFavoriteFruit = decisions({
   'apples': 'you like apples!',
@@ -182,5 +178,6 @@ In conclusion: Decisions makes working with logic trees simple and clean.
 
 ##Q&A:
 Q: What is the difference between 'default' and 'unknown'
+
 A: Default is when there is no decision or when the decision is false.  For exmaple: usersFavoriteFruit(); -or- usersFavoriteFruit(false);
 Uknown is when there is a decision but it does not appear as a specified choice.  If a 'default' isn't specified as a choice than the empty decision will fall back to the 'unknown' choice.  If 'unknown' is also not specified than it will return a error.
