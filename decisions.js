@@ -1,4 +1,4 @@
-module.exports = function (decisionTree) {
+var Decision = function (decisionTree) {
     function unknownDecision(decision) {
         console.log('Unknown "' + decision + '" command.');
         console.log('Possible arguments: ' + Object.getOwnPropertyNames(
@@ -34,3 +34,7 @@ module.exports = function (decisionTree) {
         }
     };
 };
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = Decision;
+}
