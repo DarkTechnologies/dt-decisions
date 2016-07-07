@@ -1,12 +1,43 @@
 # dt-decisions
 The better alternative to using case switch.
 
+## Installing
+Install from NPM at a console type...
+```
+npm install --save dt-decisions
+```
+This will download and install into node_modules.
+
+
+## How To Use
 Simply define a object with all your options and the returned responses.  
 Set that in Decisions and it returns a function that takes a parameter that is your selector.
 
+For Node users you will need to make something like this.
 ```javascript
 const decisions = require('dt-decisions');
 userChoice = decisions({
+  'apples': function() {
+    console.log('you like apples!');
+  },
+  'oranges': function() {
+    console.log('high in vitamin C!');
+  },
+  'bananas': function() {
+    console.log('your not a monkey are you?');
+  }
+});
+```
+
+For browser use you need to copy the decisions.js file into your JS consumption directory on your web server.
+than add this to your HTML...
+```
+<script src="decisions.js"></script>
+```
+
+This will globally add a class Decision. Example of how you use DT-Decisions in a browser similar to above...
+```javascript
+var userChoice = new Decision({
   'apples': function() {
     console.log('you like apples!');
   },
@@ -49,6 +80,7 @@ switch(userDecision) {
 
 With this...
 
+###Node JS version
 ```javascript
 decisions({
   'apples': function() {
@@ -65,6 +97,29 @@ decisions({
   }
 })(userDecision);
 ```
+
+###Browser version
+```javascript
+Decision({
+  'apples': function() {
+    console.log('you like apples!');
+  },
+  'oranges': function() {
+    console.log('high in vitamin C!');
+  },
+  'bananas': function() {
+    console.log('your not a monkey are you?');
+  },
+  'default': function() {
+    console.log('Cant decide?');
+  }
+})(userDecision);
+```
+
+Basically the only difference between Node JS and the browser version is that in Node JS
+you reference the variable you named the module when you did the require, but when 
+your in a web browser you refer to the base class 'Decision'.
+
 
 Or just store the results.
 
@@ -124,3 +179,8 @@ This will return 'huh?'.
 
 
 In conclusion: Decisions makes working with logic trees simple and clean.
+
+##Q&A:
+Q: What is the difference between 'default' and 'unknown'
+A: Default is when there is no decision or when the decision is false.  For exmaple: usersFavoriteFruit(); -or- usersFavoriteFruit(false);
+Uknown is when there is a decision but it does not appear as a specified choice.  If a 'default' isn't specified as a choice than the empty decision will fall back to the 'unknown' choice.  If 'unknown' is also not specified than it will return a error.
