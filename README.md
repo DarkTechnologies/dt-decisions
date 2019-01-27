@@ -1,3 +1,5 @@
+** PROJECT IS DEPRECIATED ** This functionality has been moved into the TS-NoDash (https://github.com/BadOPCode/NoDash) library, function Decision and future versions will be there.
+
 # dt-decisions
 The better alternative to using case switch.
 
